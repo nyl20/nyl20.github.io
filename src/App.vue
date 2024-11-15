@@ -73,7 +73,7 @@ nav{
   display: flex;
   flex-direction: row;
   justify-content: center;
-  min-width: 1200px;
+  max-width: 1200px;
 }
 .whole{
   /* margin: 3%; */
