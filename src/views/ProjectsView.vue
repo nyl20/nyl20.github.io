@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <!-- <div> -->
-    <h1>This is an projects page</h1>
+    <h1>This is an projects page: db, aml, ai hc, pp</h1>
   </div>
 </template>
 
