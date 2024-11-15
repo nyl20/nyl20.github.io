@@ -11,12 +11,15 @@
 </script>
 
 <template>
-  <div class="about">
+  <div class="projects-container">
     <!-- <div> -->
     <!-- <h1>This is an projects page: db, aml, ai hc, pp</h1>
     <p>Vegetable Varieties</p>
     <p>Search Media</p>
     <p>Graphics final</p> -->
+    <div >
+            <h2>Projects</h2>
+         </div>
     <div class="pair">
 
     
@@ -48,32 +51,41 @@
             
         </template>
         <template #footer>
-        <div class="flex gap-4 mt-1">
+        <!-- <div class="flex gap-4 mt-1">
           <Fieldset legend="More Info" :toggleable="true">
            <p class="m-0">
             ss
            </p>
            <img alt="user header" :src="image" class="card-top" />
           </Fieldset>
-        </div>
+        </div> -->
     </template>
     </Card>
   </div>
   <div class="pair">
     <Card class="project">
-        <template #title>Cornell Biomedical Device</template>
+        <template #title>Cornell Biomedical Device (CUBMD)</template>
         <template #content>
             <p class="m-0">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
-                quas!
+                CUBMD is a project team in the College of Engineering at Cornell. During my 
+                three years on the team, I worked with fellow engineering students on the 
+                product development subteam and also worked as the Webmaster. We worked on 
+                ideating novel devices and developing devices we believed feasible. As a team, 
+                we started multiple projects and submitted to competitions.
             </p>
         </template>
         <template #footer>
         <div class="flex gap-4 mt-1">
           <Fieldset legend="Specific Projects" :toggleable="true">
+            <p>Website design: <a href="https://www.cubmd.org/">CUBMD website</a></p>
            <p class="m-0">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            MelanOxi: Pulse oximeter that calibrates to skin tone
+           </p>
+           <p class="m-0">
+            MyeMonitor: Wearable muscle sensor to track MS symptoms
+           </p>
+           <p class="m-0">
+            InFlux: Infusion pump to make drug addiction recovery accessible
            </p>
           </Fieldset>
         </div>
@@ -83,9 +95,12 @@
         <template #title>FreshCheck</template>
         <template #content>
             <p class="m-0">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
-                quas!
+                An Android app to track the time a user spends outdoors. This project focused
+                on user research and design, as well as creating a prototype in Android Studio.
+                We researched existing apps and the importance of spending time outdoors in order to
+                create an effective design and wrote a comprehensive report of our findings.
             </p>
+            <!-- <p><a href="assets/report.pdf">CUBMD website</a></p> -->
         </template>
     </Card>
   </div>
@@ -102,13 +117,17 @@
 } */
 
 
-  .about {
+  .projects-container {
     min-height: 100vh;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     width: 100%;
     flex-direction: column;
+    padding-right: 7%;
+    padding-left: 7%;
+    margin-top: 3%;
+    margin-bottom: 5%;
     /* background-color: aquamarine; */
   }
 
@@ -125,10 +144,28 @@
 
   .project {
     width: 48%;
+    /* -webkit-box-shadow: 0 4px 6px -6px #B8DBD9; */
+    /* -moz-box-shadow: 0 4px 6px -6px #B8DBD9; */
+    /* box-shadow: 0 4px 6px -6px #B8DBD9' */
+    box-shadow: 10px 5px 5px red;
   }
 
   .card-top {
     height: 50px;
   }
+
+  .p-card-title {
+    /* -webkit-box-shadow: 0 4px 6px -6px #222;
+    -moz-box-shadow: 0 4px 6px -6px #222;
+    box-shadow: 0 4px 6px -6px #222; */
+    color: #586F7C;
+  }
+
+  .p-card-body {
+    /* background-color: aquamarine; */
+    /* box-shadow: 10px 5px 5px red; */
+    box-shadow: 0 -0.6em 1em 0.1em #F4F4F9;
+  }
+
 
 </style>

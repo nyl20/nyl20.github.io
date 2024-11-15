@@ -41,7 +41,7 @@
       <button class="custom-button" @click="routerpush('research')">Research</button>
     </div>
     <p>Skills</p>
-      <p>Connect with me on LinkedIn:</p>
+      <p>Connect with me on <a href="https://www.linkedin.com/in/liao-nicole/">LinkedIn</a></p>
       <p>Or reach out by email: nyl6@cornell.edu</p>
     </div>
 

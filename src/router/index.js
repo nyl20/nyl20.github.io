@@ -29,6 +29,11 @@ const router = createRouter({
       name: 'research',
       component: () => import('../views/ResearchView.vue'),
     },
+    {
+      path: '/freshcheck',
+      name: 'freshcheck',
+      component: () => import('../assets/report.pdf'),
+    },
   ],
 })
 

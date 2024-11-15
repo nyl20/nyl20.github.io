@@ -39,8 +39,8 @@ export default {
      <div class="vertical">
         <div class="para">
             <h2>Research</h2>
-    <p>My research interests have transitioned over time and currently, I am looking to continue doing research on how to draw meaningful conclusions from wearable devices and using machine learning for impactful purposes. Here is a brief timeline of the research projects I have contributed to:</p>
-</div>
+            <p>My research interests have transitioned over time and currently, I am looking to continue doing research on how to draw meaningful conclusions from wearable devices and using machine learning for impactful purposes. Here is a brief timeline of the research projects I have contributed to:</p>
+         </div>
     <!-- <div class="timeline">
       <Timeline class="tl" :value="events">
             <template #opposite="slotProps">
