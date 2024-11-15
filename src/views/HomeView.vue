@@ -36,9 +36,6 @@
            for developing meaningful technology and hope to create impactful work. Learn more about me 
            through my past projects and research:</p>
       </div>
-      <!-- <div id="app">
-        <img id="portrait" :src="image"/>
-      </div> -->
     </div>
     <div class="buttons">
       <button class="custom-button" @click="routerpush('projects')">Projects</button>
