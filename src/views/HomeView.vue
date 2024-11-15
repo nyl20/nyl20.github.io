@@ -114,12 +114,15 @@
 
   .custom-button {
     background-color: #B8DBD9;
-    border-radius: 5%;
+    border-radius: 10%;
     border: none;
     width: 150px;
     height: 50px;
     font-size: 20px;
     padding: 1%;
+    -webkit-box-shadow: 0 4px 6px -6px #222;
+  -moz-box-shadow: 0 4px 6px -6px #222;
+  box-shadow: 0 4px 6px -6px #222;
   }
 
   @keyframes fadeIn {
