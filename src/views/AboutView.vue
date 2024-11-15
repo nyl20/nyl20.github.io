@@ -11,16 +11,24 @@
 </script>
 
 <template>
-  <div class="about">
+  <div class="container">
     <!-- <div> -->
+      <div class="vertical">
+
+     
     <div class="intro">
       <div id="intro-text">
-        <p>Hi, I'm Nicole! I am a first year Master's student studying applied information systems at Cornell Tech. I graduated from Cornell University with a Bachelor's in Computer Science this past May.</p>
+        <p>I recently graduated from Cornell University and have been living in New York City since. In my free time, I might be seen playing the piano or flute, crocheting, or running. During my undergraduate, I was involved in the flute ensemble and the Cornell Biomedical Device project team. I also like learning new skills and started taking up skating in the last year. </p>
       </div>
       <div id="app">
         <img id="portrait" :src="image"/>
       </div>
     </div>
+    <p>Contact Information</p>
+    <p>Email:</p>
+    <p>LinkedIn:</p>
+    <p>Location: New York, NY</p>
+  </div>
     
 
   </div>
@@ -34,7 +42,11 @@
     align-items: center;
   }
 } */
-  .about {
+ .vertical {
+  display: flex;
+  flex-direction: column;
+ }
+  .container {
     min-height: 100vh;
     display: flex;
     justify-content: flex-start;

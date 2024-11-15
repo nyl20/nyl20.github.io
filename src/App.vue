@@ -27,7 +27,7 @@ import HelloWorld from './components/HelloWorld.vue'
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/projects">Projects</RouterLink>
         <RouterLink to="/research">Research</RouterLink>
-        <RouterLink to="/resume">Resume</RouterLink>
+        <RouterLink to="/about-me">About Me</RouterLink>
       </nav>
       </div>
       
@@ -54,6 +54,7 @@ header {
 }
 h1{
   font-size: 60px;
+  color: #2F4550;
 }
 nav{
   display: flex;

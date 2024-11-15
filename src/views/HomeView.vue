@@ -24,7 +24,7 @@
 <template>
   <div class="container">
     <!-- <div> -->
-      <div class="box">
+    <div class="box">
 
       
     <div>
@@ -36,13 +36,11 @@
       </div> -->
     </div>
     <div class="buttons">
-
-    
-    <button class="custom-button" @click="routerpush('projects')">Projects</button>
-    <!-- <Button label="Submit"/> -->
-    <button class="custom-button" @click="routerpush('research')">Research</button>
-  </div>
-    <p>Connect with me on LinkedIn:</p>
+      <button class="custom-button" @click="routerpush('projects')">Projects</button>
+      <!-- <Button label="Submit"/> -->
+      <button class="custom-button" @click="routerpush('research')">Research</button>
+    </div>
+      <p>Connect with me on LinkedIn:</p>
       <p>Or reach out by email: nyl6@cornell.edu</p>
     </div>
 
@@ -74,6 +72,10 @@
     margin-left: 7%;
     margin-right: 7%;
     margin-top: 7%;
+    animation: 1s fadeIn;
+    animation-fill-mode: forwards;
+  
+    visibility: hidden;
     /* background-color: aquamarine; */
   }
   .intro {
@@ -119,5 +121,15 @@
     font-size: 20px;
     padding: 1%;
   }
+
+  @keyframes fadeIn {
+    0% {
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
 
 </style>

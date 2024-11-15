@@ -16,19 +16,67 @@ export default {
 <template>
   <div class="about">
     <!-- <div> -->
-    <!-- <h1>This is a research page: db, aml, ai hc, pp</h1> -->
-    <div class="card">
-      <Timeline :value="events">
+    
+     <div class="vertical">
+<p>My research interests have transitioned over time and currently, I am looking to continue researching how to draw meaningful conclusions from wearable devices and machine learning.</p>
+     
+    <!-- <div class="timeline">
+      <Timeline class="tl" :value="events">
             <template #opposite="slotProps">
                 <small class="text-surface-500 dark:text-surface-400">{{slotProps.item.date}}</small>
             </template>
             <template #content="slotProps">
                 {{slotProps.item.status}}
+                <Card class="mt-4">
+                    <template #title>
+                        {{ slotProps.item.status }}
+                    </template>
+                    <template #subtitle>
+                        {{ slotProps.item.date }}
+                    </template>
+                    <template #content>
+                        <img v-if="slotProps.item.image" :src="`https://primefaces.org/cdn/primevue/images/product/${slotProps.item.image}`" :alt="slotProps.item.name" width="200" class="shadow-sm" />
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate
+                            neque quas!
+                        </p>
+                        <Button label="Read more" text></Button>
+                    </template>
+                </Card>
+            </template>
+        </Timeline>
+    </div> -->
+
+
+
+    <div class="card">
+        <Timeline :value="events" align="alternate" class="customized-timeline">
+            <template #marker="slotProps">
+                <span class="flex w-8 h-8 items-center justify-center text-white rounded-full z-10 shadow-sm" :style="{ backgroundColor: slotProps.item.color }">
+                    <i :class="slotProps.item.icon"></i>
+                </span>
+            </template>
+            <template #content="slotProps">
+                <Card class="mt-4">
+                    <template #title>
+                        {{ slotProps.item.status }}
+                    </template>
+                    <template #subtitle>
+                        {{ slotProps.item.date }}
+                    </template>
+                    <template #content>
+                        <img v-if="slotProps.item.image" :src="`https://primefaces.org/cdn/primevue/images/product/${slotProps.item.image}`" :alt="slotProps.item.name" width="200" class="shadow-sm" />
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate
+                            neque quas!
+                        </p>
+                        <Button label="Read more" text></Button>
+                    </template>
+                </Card>
             </template>
         </Timeline>
     </div>
-
-
+  </div>
 
   </div>
 </template>
@@ -51,5 +99,20 @@ export default {
     width: 100%;
     /* background-color: aquamarine; */
   }
+  .vertical {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card {
+    margin-top: 5%;
+  }
+
+  /* .timeline {
+    background-color: bisque;
+    width: 80%;
+  } */
+
+
 
 </style>

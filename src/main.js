@@ -5,6 +5,8 @@ import PrimeVue from 'primevue/config';
 import Aura from '@primevue/themes/aura';
 import Button from "primevue/button"
 import Timeline from 'primevue/timeline';
+import Fieldset from 'primevue/fieldset';
+import { Card } from 'primevue';
 import App from './App.vue'
 import router from './router'
 
@@ -18,6 +20,8 @@ app.use(PrimeVue, {
 });
 app.component('Button', Button);
 app.component('Timeline', Timeline);
+app.component('Card', Card);
+app.component('Fieldset', Fieldset);
 
 app.use(router)
 
