@@ -31,6 +31,7 @@
     <p>LinkedIn: https://www.linkedin.com/in/liao-nicole/</p>
     <p>Github: https://github.com/nyl20</p>
     <p>Location: New York, NY</p>
+
   </div>
       </div>
       <div id="headshot-area">
@@ -60,7 +61,6 @@
     justify-content: flex-start;
     align-items: flex-start;
     width: 100%;
-    /* background-color: aquamarine; */
   }
 
   .box {
@@ -74,18 +74,13 @@
     animation-fill-mode: forwards;
   
     visibility: hidden;
-    /* background-color: aquamarine; */
   }
 
   .intro {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    /* background-color: #586F7C; */
     align-items: center;
-    /* margin-left: 7%;
-    margin-right: 7%; */
-    /* align-content: center; */
   }
 
   #intro-text{
@@ -101,8 +96,6 @@
   #portrait {
     border-radius: 8%;
     height: 300px;
-    /* align-self: center; */
-    /* align-items: center; */
   }
 
   .contact-area {
