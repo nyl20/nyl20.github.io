@@ -1,5 +1,7 @@
+
 <script>
     import image from "../assets/headshot.jpg"
+    // import Button from 'primevue/button';
     
     export default {
       methods: {
@@ -17,6 +19,8 @@
 </script>
 
 
+
+
 <template>
   <div class="container">
     <!-- <div> -->
@@ -31,7 +35,13 @@
         <img id="portrait" :src="image"/>
       </div> -->
     </div>
+    <div class="buttons">
+
+    
     <button class="custom-button" @click="routerpush('projects')">Projects</button>
+    <!-- <Button label="Submit"/> -->
+    <button class="custom-button" @click="routerpush('research')">Research</button>
+  </div>
     <p>Connect with me on LinkedIn:</p>
       <p>Or reach out by email: nyl6@cornell.edu</p>
     </div>
@@ -86,11 +96,28 @@
     /* align-items: center; */
   }
 
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-self: center;
+    width: 35%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+
+  .custom-button:hover {
+  background-color: #586F7C;
+}
+
   .custom-button {
     background-color: #B8DBD9;
-    border-radius: 10%;
-    width: 20%;
-    height: 30px;
+    border-radius: 5%;
+    border: none;
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    padding: 1%;
   }
 
 </style>
