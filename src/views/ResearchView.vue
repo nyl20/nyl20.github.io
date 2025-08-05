@@ -2,10 +2,17 @@
 import image1 from "../assets/TottiLabs.png"
 import image2 from "../assets/OrnithologyLab.png"
 import image3 from "../assets/BirdVox.png"
+import image4 from "../assets/weill.png"
 export default {
     data() {
         return {
             events: [
+              { status: 'Medical Education Advising', date: 'Present',
+                    location: 'New York, NY',
+                    image: image4,
+                    description: 'Through a collaboration of Cornell Tech and Weill Cornell, this research project is targeted at making medical education advising easier for both students and advisors. The goal is to create a chatbot which students can interact with in place of an advisor. With data from past Weill students and specific advice from Cornell\'s advisors, the chatbot should be able to give specialized and personalized advice on medical career questions and how to rank residencies during their fourth year of medical school.',
+                    contribution: 'Working with Dr. Kaushal Shah, I am exploring options for the chatbot, including finetuning a LLM and using RAG.'
+                },
                 { status: 'One Button Tracker', date: 'May 2023 - Jul 2023',
                     location: 'Lyngby, DK',
                     image: image1,
@@ -26,8 +33,20 @@ export default {
                     location: 'Eastchester, NY',
                     description: 'Research focused on the effects of artificial lignt at night on nocturnal organisms, specifically moths.',
                     contribution: 'I developed and completed an experiment to analyze the effects of different wavelengths of light on moth fitness. Moths were placed under different colored lights and observed for several months, and fitness was measured by mass. Results indicated that red light is better to reduce light pollution.'}
-            ]
+            ],
+            isMobile: window.innerWidth < 1000
         };
+    },
+    mounted() {
+      window.addEventListener('resize', this.handleResize);
+    },
+    beforeUnmount() {
+      window.removeEventListener('resize', this.handleResize);
+    },
+    methods: {
+      handleResize() {
+        this.isMobile = window.innerWidth < 768;
+      }
     }
 };
 </script>
@@ -42,7 +61,7 @@ export default {
             <p>My research interests have transitioned over time and currently, I am looking to continue doing research on how to draw meaningful conclusions from wearable devices and using machine learning for impactful purposes. Here is a brief timeline of the research projects I have contributed to:</p>
          </div>
     <!-- <div class="timeline">
-      <Timeline class="tl" :value="events">
+      <Timeline class="tl" :value="events" >
             <template #opposite="slotProps">
                 <small class="text-surface-500 dark:text-surface-400">{{slotProps.item.date}}</small>
             </template>
@@ -70,8 +89,8 @@ export default {
 
 
 
-    <div class="card">
-        <Timeline :value="events" align="alternate" class="customized-timeline">
+    <div class="card timeline-wrapper">
+        <Timeline :value="events" :align="isMobile ? 'left' : 'alternate'" class="customized-timeline">
             <template #opposite="slotProps">
         <!-- <small class="text-surface-500 dark:text-surface-400">{{slotProps.item.date}}</small> -->
         <img  v-if="slotProps.item.image" :src="`${slotProps.item.image}`" :alt="slotProps.item.name" width="200" class="shadow-sm" />
@@ -106,15 +125,6 @@ export default {
 </template>
 
 <style>
-/* @media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-} */
-
-
   .about {
     min-height: 100vh;
     display: flex;
@@ -143,17 +153,100 @@ export default {
   }
 
   .card {
-    margin-top: 5%;
-    margin-right: 6%;
+    margin: 5% 6%;
+    min-width: 700px;
+    /* width: 100%; */
+    /* margin-right: 6%;
     margin-left: 6%;
-    margin-bottom: 3%;
+    margin-bottom: 3%; */
   }
+
+  
+
+
+
+/* Add vertical spacing between timeline events */
+.p-timeline-event {
+  margin-bottom: 2rem;
+}
+
 
   /* .timeline {
     background-color: bisque;
     width: 80%;
   } */
 
+  /* Move timeline line and event markers to the left */
+.p-timeline-left .p-timeline-event-opposite {
+  display: none;
+}
 
+.p-timeline-left .p-timeline-event-content {
+  margin-left: 2rem; /* add spacing to separate from line */
+}
+
+.p-timeline-left .p-timeline-event-marker {
+  left: 0;
+  margin-left: 0;
+}
+
+.p-timeline-left .p-timeline-event-connector {
+  left: 0;
+}
+
+.p-timeline-left .p-timeline-event {
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+
+  @media (max-width: 1000px) {
+    .timeline {
+        margin: 0;
+        align-self: flex-start;
+    }
+
+  /* Ensure card content fits in wrapper */
+    .customized-timeline .p-card {
+      width: 60%;
+      box-sizing: border-box;
+    }
+
+    .timeline-wrapper {
+      /* max-width: 700px;  */
+      /* or 90% for fluid sizing */
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 1rem;
+      box-sizing: border-box;
+    }
+
+    .card {
+      margin-top: 3%;
+    }
+    .p-timeline-event-opposite {
+      visibility: hidden;
+    }
+
+    .para {
+      width: 55%;
+    }
+
+  /* .intro {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  #headshot-area {
+  padding-top: 5%;
+  padding-left: 0;
+  }
+
+  #portrait {
+    width: 100%;
+    height: auto;
+  } */
+}
 
 </style>

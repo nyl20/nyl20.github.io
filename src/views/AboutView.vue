@@ -16,7 +16,7 @@
       <div class="box">
 
      
-    <div class="intro">
+    <div class="about-intro">
       <div id="intro-text">
         <h2>About Me</h2>
         <p>I recently graduated from Cornell University and have been living in New York City since.
@@ -35,7 +35,7 @@
   </div>
       </div>
       <div id="headshot-area">
-        <img id="portrait" :src="image"/>
+        <img id="headshot-portrait" :src="image"/>
       </div>
     </div>
     
@@ -76,7 +76,7 @@
     visibility: hidden;
   }
 
-  .intro {
+  .about-intro {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -93,9 +93,10 @@
   padding-left: 5%;
 }
 
-  #portrait {
+  #headshot-portrait {
     border-radius: 8%;
-    height: 300px;
+    height: 250px;
+    /* width: 100%; */
   }
 
   .contact-area {
@@ -105,4 +106,20 @@
     color: #F4F4F9;
   }
 
+  @media (max-width: 1000px) {
+  .about-intro {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  #headshot-area {
+  padding-top: 5%;
+  padding-left: 0;
+  }
+
+  #headshot-portrait {
+    width: 100%;
+    height: auto;
+  }
+}
 </style>

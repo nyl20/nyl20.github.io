@@ -30,9 +30,39 @@ const router = createRouter({
       component: () => import('../views/ResearchView.vue'),
     },
     {
+      path: '/experience',
+      name: 'experience',
+      component: () => import('../views/ExperienceView.vue'),
+    },
+    {
       path: '/freshcheck',
       name: 'freshcheck',
       component: () => import('../assets/report.pdf'),
+    },
+    {
+      path: '/squashscore',
+      name: 'squashscore',
+      component: () => import('../views/SquashScoreView.vue'),
+    },
+    {
+      path: '/bcbm-prediction',
+      name: 'bcbm-prediction',
+      component: () => import('../views/BCBMView.vue'),
+    },
+    {
+      path: '/nof1',
+      name: 'nof1',
+      component: () => import('../views/Nof1View.vue'),
+    },
+    {
+      path: '/bluetape',
+      name: 'bluetape',
+      component: () => import('../views/BlueTapeView.vue'),
+    },
+    {
+      path: '/yarnsocial',
+      name: 'yarnsocial',
+      component: () => import('../views/YarnSocialView.vue'),
     },
   ],
 })

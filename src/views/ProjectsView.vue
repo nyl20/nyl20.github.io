@@ -1,7 +1,12 @@
 <script>
-    import image from "../assets/SS_login.png"
+    import image from "../assets/SS_login.png";
     
     export default {
+       methods: {
+    routerpush(resource_name) {
+      let name = "/" + resource_name;
+      this.$router.push(name);
+    }},
         data: function () {
             return {
                 image: image
@@ -20,10 +25,79 @@
     <div >
             <h2>Projects</h2>
          </div>
-    <div class="pair">
 
-    
-    <Card class="project">
+
+
+         <div   class="pair">    
+    <Card v-animateonscroll="{ enterClass: 'fadeinRight' }" class="project">
+        <template class="title" #title>SquashScore</template>
+        <template #content>
+            <p class="m-0">
+              An app for squash players and coaches to analyze their matches and improve their skills based 
+              on real time input. Squash coaches can use this app to document how points are
+               won and visualize areas of strength and weakness. Designed in Figma 
+               and developed in React Native with deployment using Apple Developer.
+            </p>
+            <button class="more-button"  @click="routerpush('squashscore')">Read more</button>
+        </template>
+    </Card>
+    <Card  v-animateonscroll="{ enterClass: 'fadeinLeft' }" class="project">
+        <template #title>
+          BCBM Suptype Prediction
+          
+        </template>
+        <template #content>
+            <p class="m-0">
+              Machine learning model for classifying the molecular subtype of breast cancer, specifically in cases of brain metastasis. A custom ensemble classifier was trained using radiomics data and 3D scans of the brain (MRIs). All data processing and model development was done in python.
+
+            </p>
+            <button class="more-button" @click="routerpush('bcbm-prediction')">Read more</button>
+        </template>
+    </Card>
+  </div>
+
+   <div   class="pair">    
+    <Card  v-animateonscroll="{ enterClass: 'fadeinRight' }" class="project">
+        <template class="title" #title>Music on Sleep: a N-of-1 Trial</template>
+        <template #content>
+            <p class="m-0">
+              A study to determine the impact of classical music on sleep quality by listening to a relaxing playlist before sleeping and after waking. The trial was conducted over four weeks in an ABAB format. Fitbit was used to track sleep data and surveys were used for percieved sleep and morning mood data collection. Sentiment analysis and statistical analysis were performed on the data to determine if there was a significant effect of music on sleep and morning mood.
+            </p>
+            <button class="more-button" @click="routerpush('nof1')">Read more</button>
+        </template>
+    </Card>
+    <Card v-animateonscroll="{ enterClass: 'fadeinLeft' }"  class="project">
+        <template #title>
+         BlueTape
+          
+        </template>
+        <template #content>
+            <p class="m-0">
+              The winning idea at the MindState Ideation Hackathon. User interviews and research were performed to ideate a product in the AgTech field which would help farmers combat or monitor the problem of pesticide drift. BlueTape was created in collaboration with designers from Mexico and Israel and a mentor from BlueWhite.
+
+            </p>
+            <button class="more-button" @click="routerpush('bluetape')">Read more</button>
+        </template>
+    </Card>
+  </div>
+
+
+    <div class="pair">    
+      <Card v-animateonscroll="{ enterClass: 'fadeinRight' }" class="project">
+        <template #title>
+          Yarn Social
+          
+        </template>
+        <template #content>
+            <p class="m-0">
+              A website for yarn lovers and fiber artists to share patterns and yarn shops. Users can post patterns and shops can post about their store or items they are selling. The website was created with Next.js, React, drizzle, and a postgres database.
+
+            </p>
+            <button class="more-button"  @click="routerpush('yarnsocial')">Read more</button>
+            
+        </template>
+    </Card>
+    <Card v-animateonscroll="{ enterClass: 'fadeinLeft' }"  class="project">
         <template class="title" #title>Relational Database Management System</template>
         <template #content>
             <p class="m-0">
@@ -35,35 +109,11 @@
             </p>
         </template>
     </Card>
-    <Card class="project">
-        <template #title>
-          SquashScore
-          
-        </template>
-        <template #content>
-            <p class="m-0">
-              An app for squash players to analyze their matches and improve their skills based 
-              on real time input. Squash coaches can use this app to document how points are
-               won and visualize areas of strength and weakness. Designed in Figma 
-               and developed in React Native with deployment using Apple Developer.
-
-            </p>
-            
-        </template>
-        <template #footer>
-        <!-- <div class="flex gap-4 mt-1">
-          <Fieldset legend="More Info" :toggleable="true">
-           <p class="m-0">
-            ss
-           </p>
-           <img alt="user header" :src="image" class="card-top" />
-          </Fieldset>
-        </div> -->
-    </template>
-    </Card>
   </div>
-  <div class="pair">
-    <Card class="project">
+
+
+  <div  class="pair">
+    <Card  v-animateonscroll="{ enterClass: 'fadeinRight' }" class="project">
         <template #title>Cornell Biomedical Device (CUBMD)</template>
         <template #content>
             <p class="m-0">
@@ -91,7 +141,7 @@
         </div>
     </template>
     </Card>
-    <Card class="project">
+    <Card  v-animateonscroll="{ enterClass: 'fadeinLeft' }" class="project">
         <template #title>FreshCheck</template>
         <template #content>
             <p class="m-0">
@@ -108,15 +158,6 @@
 </template>
 
 <style>
-/* @media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-} */
-
-
   .projects-container {
     min-height: 100vh;
     display: flex;
@@ -147,7 +188,7 @@
     /* -webkit-box-shadow: 0 4px 6px -6px #B8DBD9; */
     /* -moz-box-shadow: 0 4px 6px -6px #B8DBD9; */
     /* box-shadow: 0 4px 6px -6px #B8DBD9' */
-    box-shadow: 10px 5px 5px red;
+    /* box-shadow: 10px 5px 5px red; */
   }
 
   .card-top {
@@ -167,5 +208,75 @@
     box-shadow: 0 -0.6em 1em 0.1em #F4F4F9;
   }
 
+  .more-button:hover{
+    background-color: #586F7C;
+    color: #FFFFFF;
+  }
+
+  .more-button {
+    border-width: 0;
+    border-radius: 10px;
+    background-color: #f4f4f9;
+    margin: 2% auto;
+    padding: 2%;
+  }
+
+  @keyframes fadeInSlideLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0); /* End at original position */
+  }
+}
+
+@keyframes fadeInSlideRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0); /* End at original position */
+  }
+}
+
+  @keyframes fadeInSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Start 20px below its final position */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* End at its natural position */
+  }
+}
+
+  @keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.fadeinRight {
+  animation: fadeInSlideRight 1s ease-out forwards;
+}
+
+.fadeinLeft {
+  animation: fadeInSlideLeft 1s ease-out forwards;
+}
+
+  @media (max-width: 1000px) {
+  .pair {
+    display: flex;
+    flex-direction: column;
+    /* background-color: #586F7C; */
+  }
+
+  .project {
+    width: 100%;
+    margin-bottom: 5%;
+  }
+}
 
 </style>

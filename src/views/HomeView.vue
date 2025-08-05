@@ -29,11 +29,11 @@
       
     <div>
       <div id="intro-text">
-        <p>Hi, I'm Nicole! I am a first year Master's student studying applied information systems at Cornell Tech.
-           I graduated from Cornell University with a Bachelor's in Computer Science this past May and  
+        <p>Hi, I'm Nicole! I am a Master's student studying applied information systems at Cornell Tech with a concentration in Health Tech.
+           I graduated from Cornell University with a Bachelor's in Computer Science and  
            I am interested in the intersection of machine learning and healthcare. Through further study and experience, I 
            hope to develop software that advances the health tech space. From app development to academic research, I have a passion 
-           for developing meaningful technology and hope to create impactful work. Learn more about me 
+           for developing meaningful technology and hope to contribute to impactful work. Learn more about me 
            through my past projects and research:</p>
       </div>
     </div>
@@ -137,15 +137,15 @@
 
   .custom-button {
     background-color: #B8DBD9;
-    border-radius: 10%;
+    border-radius: 12px;
     border: none;
     width: 150px;
     height: 50px;
     font-size: 20px;
     padding: 1%;
-    -webkit-box-shadow: 0 4px 6px -6px #222;
-  -moz-box-shadow: 0 4px 6px -6px #222;
-  box-shadow: 0 4px 6px -6px #222;
+    box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
   .skill-chips {
@@ -167,6 +167,18 @@
   100% {
     visibility: visible;
     opacity: 1;
+  }
+}
+
+@media (max-width: 1000px) {
+  .buttons {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .custom-button {
+    margin-bottom: 4%;
+    color: #222;
   }
 }
 
