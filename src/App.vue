@@ -104,7 +104,7 @@ nav a.router-link-exact-active {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  max-width: 1200px;
+  width: 100%;
 }
 
 .whole {
@@ -112,6 +112,7 @@ nav a.router-link-exact-active {
   flex-direction: column;
   justify-content: flex-start;
   width: 100%;
+  max-width: 1440px;
 }
 
 @media (max-width: 900px) {
