@@ -38,27 +38,30 @@ onBeforeUnmount(() => {
         </div>
       </header>
 
-      <RouterView />
+      <main :class="['page-shell', { 'with-header-offset': !isHome }]">
+        <RouterView />
+      </main>
     </div>
   </div>
 </template>
 
 <style scoped>
 .site-header {
-  position: sticky;
-  top: 0;
+  position: fixed;
+  top: 12px;
+  left: 50%;
+  width: min(1400px, calc(100% - 24px));
   z-index: 20;
   display: flex;
   justify-content: space-between;
   align-items: end;
   padding: 1rem 2%;
-  margin-top: 0.75rem;
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.76);
   backdrop-filter: blur(16px);
   box-shadow: 0 10px 30px rgba(47, 69, 80, 0.08);
   opacity: 0;
-  transform: translateY(-10px);
+  transform: translateX(-50%) translateY(-10px);
   pointer-events: none;
   transition:
     opacity 0.28s ease,
@@ -67,7 +70,7 @@ onBeforeUnmount(() => {
 
 .site-header.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(-50%) translateY(0);
   pointer-events: auto;
 }
 
@@ -113,6 +116,14 @@ nav a.router-link-exact-active {
   justify-content: flex-start;
   width: 100%;
   max-width: 1440px;
+}
+
+.page-shell {
+  width: 100%;
+}
+
+.page-shell.with-header-offset {
+  padding-top: 5.75rem;
 }
 
 @media (max-width: 900px) {

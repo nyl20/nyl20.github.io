@@ -42,7 +42,7 @@ export default {
 
     return {
       projectCards: [...projects, ...projects],
-      researchLabs: [
+      experienceImages: [
         { title: "Weill Cornell", image: weillImage },
         { title: "TOTTI Labs", image: tottiImage },
         { title: "BirdCast", image: birdImage },
@@ -56,7 +56,7 @@ export default {
   },
   methods: {
     scrollToWork() {
-      const element = document.getElementById("home-projects");
+      const element = document.getElementById("home-about");
       if (element) {
         element.scrollIntoView({ behavior: "smooth", block: "start" });
       }
@@ -71,23 +71,32 @@ export default {
       <div class="section-inner hero-layout">
         <div class="hero-copy">
           <p class="hero-kicker">Nicole Liao</p>
-          <h1>Health tech, applied ML, and product-minded engineering.</h1>
-          <div class="hero-actions">
+          <h1>Health tech and product-minded engineering.</h1>
+          <!-- <div class="hero-actions">
             <button class="primary-button" @click="scrollToWork">View work</button>
             <RouterLink class="ghost-button" to="/about-me">About me</RouterLink>
-          </div>
+          </div> -->
         </div>
 
         <div class="hero-contact">
           <p class="contact-label">Contact</p>
-          <a class="contact-label" href="mailto:nyl6@cornell.edu">nyl6@cornell.edu</a>
-          <a class="contact-label" href="https://www.linkedin.com/in/liao-nicole/">LinkedIn</a>
+          <a href="mailto:nyl6@cornell.edu">nyl6@cornell.edu</a>
+          <a href="https://www.linkedin.com/in/liao-nicole/">LinkedIn</a>
         </div>
       </div>
 
       <button class="scroll-cue" @click="scrollToWork" aria-label="Scroll to content">
         <span></span>
       </button>
+    </section>
+
+    <section id="home-about" class="section-band about-band">
+      <div class="section-inner">
+        <div class="section-copy">
+          <h1>Hello!</h1>
+        </div>
+        <p>I'm Nicole, a Master's student at Cornell Tech. I enjoy working at the intersection of technology and healthcare, as well as creative tech.</p>
+      </div>
     </section>
 
     <section id="home-projects" class="section-band projects-band">
@@ -131,31 +140,37 @@ export default {
     </section>
 
     <section class="section-band experience-band">
-      <div class="section-inner experience-layout">
-        <div class="section-copy summary-copy">
-          <p class="section-kicker">Experience</p>
-          <h2>Research, teaching, and technical problem-solving</h2>
-        </div>
-        <div class="experience-summary">
-          <p>
-            My experience spans health tech and data science research, full stack development, and teaching.
-            I enjoy building features across the stack and helping others learn how to do the same.
-          </p>
-          <RouterLink class="primary-button inline-link-button" to="/experience">View experience</RouterLink>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-band research-band">
       <div class="section-inner">
-        <div class="section-copy">
-          <p class="section-kicker">Research</p>
-          <h2>Labs and collaborations</h2>
+        <div class="experience-layout">
+          <div class="experience-copy">
+            <div class="section-copy summary-copy">
+              <p class="section-kicker">Experience</p>
+              <h2>Research, teaching, and technical problem-solving</h2>
+            </div>
+            
+          </div>
+
+          <div class="experience-summary">
+              <p>
+                My experience spans health tech and data science research, full stack development, and teaching.
+                I enjoy building features across the stack and helping others learn how to do the same.
+              </p>
+              <RouterLink class="primary-button inline-link-button" to="/experience">View experience</RouterLink>
+            </div>
+
+          <!-- <div class="experience-side-note">
+            <p>Past work has included lab collaborations, course support, and product-facing software development.</p>
+          </div> -->
         </div>
 
-        <div class="research-gallery">
-          <RouterLink v-for="lab in researchLabs" :key="lab.title" to="/research" class="research-image-link">
-            <img :src="lab.image" :alt="lab.title" class="research-image" />
+        <div class="experience-images">
+          <RouterLink
+            v-for="item in experienceImages"
+            :key="item.title"
+            to="/experience"
+            class="experience-image-link"
+          >
+            <img :src="item.image" :alt="item.title" class="experience-image" />
           </RouterLink>
         </div>
       </div>
@@ -228,7 +243,7 @@ export default {
   max-width: 11ch;
   font-size: clamp(3.3rem, 7vw, 6.1rem);
   line-height: 0.96;
-  font-weight: 700;
+  font-weight: 500;
   color: #16303b;
 }
 
@@ -249,9 +264,9 @@ export default {
   margin: 0 3% 2rem 0;
   padding: 1rem 1.1rem;
   border-radius: 20px;
-  /* background: rgba(255, 255, 255, 0.72); */
-  /* backdrop-filter: blur(12px); */
-  /* box-shadow: 0 16px 34px rgba(47, 69, 80, 0.08); */
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 16px 34px rgba(47, 69, 80, 0.08);
 }
 
 .hero-contact a {
@@ -328,6 +343,22 @@ export default {
   color: #16303b;
 }
 
+.about-band {
+  padding: 8rem 0;
+  background: linear-gradient(180deg, #fffaf2 0%, #ffffff 100%);
+  justify-content: center;
+  text-align: center;
+}
+
+.about-band h1 {
+  margin-top: 1rem;
+  /* max-width: 11ch; */
+  font-size: clamp(3.3rem, 7vw, 4.1rem);
+  line-height: 0.96;
+  font-weight: 600;
+  color: #16303b;
+}
+
 .projects-band {
   padding: 4.5rem 0 4rem;
   background: linear-gradient(180deg, #fffaf2 0%, #ffffff 100%);
@@ -360,11 +391,14 @@ export default {
 }
 
 .project-image,
-.research-image {
+.experience-image {
   width: 100%;
-  height: 100%;
   object-fit: cover;
   transition: transform 0.45s ease;
+}
+
+.project-image {
+  height: 100%;
 }
 
 .project-overlay {
@@ -391,7 +425,7 @@ export default {
 }
 
 .project-card:hover .project-image,
-.research-image-link:hover .research-image {
+.experience-image-link:hover .experience-image {
   transform: scale(1.03);
 }
 
@@ -433,15 +467,29 @@ export default {
 }
 
 .experience-band {
-  padding: 4rem 0;
-  background: linear-gradient(90deg, #ffffff 0%, #fff5ea 100%);
+  padding: 4rem 0 5rem;
+  background: linear-gradient(180deg, #fff2d8 0%, #ffffff 100%);
 }
 
 .experience-layout {
   display: grid;
-  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
   gap: 2rem;
   align-items: center;
+}
+
+.experience-copy {
+  display: flex;
+  flex-direction: column;
+}
+
+.experience-side-note {
+  align-self: center;
+  padding: 1.4rem 1.5rem;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(47, 69, 80, 0.08);
+  color: #4d6772;
 }
 
 .summary-copy {
@@ -461,34 +509,30 @@ export default {
   font-size: 1.02rem;
 }
 
-.research-band {
-  padding: 4rem 0 4.5rem;
-  background: linear-gradient(180deg, #edf8ef 0%, #e5f3ea 100%);
-}
-
-.research-gallery {
+.experience-images {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(3, minmax(0, 180px));
+  justify-content: center;
+  gap: 1rem;
   align-items: start;
+  margin-top: 2.5rem;
 }
 
-.research-image-link {
+.experience-image-link {
   display: block;
 }
 
-.research-image {
+.experience-image {
   display: block;
   width: 100%;
-  height: auto;
+  height: 150px;
   object-fit: contain;
-  border-radius: 0;
-  box-shadow: none;
+  object-position: center;
 }
 
 .contact-band {
   padding: 0 0 4rem;
-  background: #e5f3ea;
+  background: #ffffff;
 }
 
 .contact-strip {
@@ -548,8 +592,7 @@ export default {
 
 @media (max-width: 960px) {
   .hero-layout,
-  .experience-layout,
-  .research-gallery {
+  .experience-layout {
     grid-template-columns: 1fr;
   }
 
@@ -576,6 +619,14 @@ export default {
   .project-card {
     width: 280px;
     height: 340px;
+  }
+
+  .experience-images {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-image {
+    height: 120px;
   }
 }
 </style>
