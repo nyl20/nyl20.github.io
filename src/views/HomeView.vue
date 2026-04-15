@@ -9,6 +9,7 @@ import freshcheckImage from "../assets/SS_login.png";
 import weillImage from "../assets/weill.png";
 import tottiImage from "../assets/TottiLabs.png";
 import birdImage from "../assets/OrnithologyLab.png";
+import efImage from "../assets/ef-cover.png";
 
 export default {
   components: {
@@ -18,12 +19,13 @@ export default {
     return {
       projectCards: [
         {
-          title: "SquashScore",
-          subtitle: "Real-time match analysis",
-          route: "squashscore",
-          image: squashImage,
-          size: "project-feature-left",
-        },
+            title: "EchoFeed",
+            subtitle: "Podcast generation from social media content",
+            route: "echofeed",
+            image: efImage,
+            size: "project-feature-left",
+          },
+        
         {
           title: "BCBM Prediction",
           subtitle: "ML for breast cancer subtype classification",
@@ -33,18 +35,19 @@ export default {
         },
         {
           title: "N of 1",
-          subtitle: "Personal health tracking and sensor-driven sleep insights",
+          subtitle: "Personal sensor-driven sleep insights",
           route: "nof1",
           image: nof1Image,
           size: "project-small-b",
         },
         {
-          title: "FreshCheck",
-          subtitle: "Designing clearer reporting around health and sleep data",
-          route: "freshcheck",
-          image: freshcheckImage,
+          title: "SquashScore",
+          subtitle: "Real-time match analysis",
+          route: "squashscore",
+          image: squashImage,
           size: "project-small-c",
         },
+        
         {
           title: "BlueTape",
           subtitle: "AgTech concept for pesticide drift",
@@ -643,7 +646,7 @@ export default {
   font-weight: 700;
   color: #ffffff;
   line-height: 1.2;
-  transform: translateY(30px);
+  transform: translateY(50px);
   transition: transform 0.28s ease;
 }
 
@@ -703,7 +706,7 @@ export default {
 
 .skills-group {
   padding: 1.2rem 1.15rem 1.3rem;
-  border-radius: 22px;
+  border-radius: 6px;
   background: rgba(255, 251, 241, 0.76);
   border: 1px solid var(--color-border);
   box-shadow: 0 16px 34px var(--color-shadow);
@@ -779,8 +782,9 @@ export default {
 
 .experience-pill {
   padding: 0.95rem 1rem;
-  border-radius: 18px;
-  background: rgba(248, 251, 254, 0.9);
+  border-radius: 6px;
+  background: rgba(255, 251, 241, 0.76);
+  /* background: rgba(248, 251, 254, 0.9); */
   border: 1px solid rgba(118, 138, 156, 0.14);
 }
 

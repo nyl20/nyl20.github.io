@@ -26,7 +26,7 @@
 </script>
 
 <template>
-  <div class="container">
+  <div class="project-container">
     <!-- <div> -->
       <div class="box">
     
@@ -73,6 +73,10 @@
     align-items: center;
   }
 } */
+.project-container{
+  margin-left: 9%;
+  margin-right: 9%;
+}
 
 .squash-title{
   display: flex;

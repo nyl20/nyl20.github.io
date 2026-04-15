@@ -23,7 +23,7 @@ import posts from "../assets/ys-pics.png"
 </script>
 
 <template>
-  <div class="container">
+  <div class="project-container">
     <!-- <div> -->
       <div class="box">
     

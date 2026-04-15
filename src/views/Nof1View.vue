@@ -28,7 +28,7 @@ import report from "../assets/sleep_report.png"
 </script>
 
 <template>
-  <div class="container">
+  <div class="project-container">
     <!-- <div> -->
       <div class="box">
     

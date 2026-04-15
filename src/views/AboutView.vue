@@ -91,10 +91,17 @@ export default {
       ],
       interests: [
         {
-          title: "Creative and everyday interests",
+          title: "Creative",
           points: [
-            "Music, crocheting, and running are some of the things I keep coming back to.",
-            "I also enjoy learning new skills and exploring ways technology can feel more human and expressive.",
+            "I love to crochet and use journaling as a creative outlet. I am currently developing an app to help crocheters count and track their works in progress.",
+            "Check out my creative website: https://nyl-creates-site.vercel.app/",
+          ],
+        },
+        {
+          title: "Other",
+          points: [
+            "Music - I enjoy playing the piano or flute.",
+            "Hiking and running - I try to hike on every trip I take and have been working towards running a half marathon. ",
           ],
         },
       ],
@@ -113,11 +120,10 @@ export default {
            <h2>About Me</h2>
           <p class="about-summary">
             I am a master's student at Cornell Tech interested in health tech, machine learning, and
-            thoughtful product design. I like building work that feels useful, clear, and carefully made.
+            thoughtful product design. I like building work that feels useful and aligns with my values and passions.
           </p>
           <p class="about-summary">
-            My background has moved across product work, research, and teaching, and each of those areas
-            has shaped how I think about building technology.
+            My background has moved across data science research, teaching, and full stack projects. I hope to gain more experience through more software roles and contribute to purposeful projects.
           </p>
         </div>
 
@@ -390,7 +396,7 @@ export default {
 .portrait-wrap img {
   display: block;
   width: 100%;
-  border-radius: 14px;
+  border-radius: 6px;
   object-fit: cover;
   box-shadow: 0 18px 42px var(--color-shadow);
 }

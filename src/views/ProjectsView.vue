@@ -6,6 +6,7 @@ import nof1Image from "../assets/sleep_report.png";
 import freshcheckImage from "../assets/SS_login.png";
 import blueTapeImage from "../assets/blueTape.png";
 import yarnImage from "../assets/ys-banner.png";
+import efImage from "../assets/ef-cover.png";
 
 export default {
   components: {
@@ -14,6 +15,16 @@ export default {
   data() {
     return {
       projectRows: [
+        [
+          {
+            title: "EchoFeed",
+            image: efImage,
+            route: "echofeed",
+            description:
+              "An iOS app that generates short form audio based on saved social media content. EchoFeed was developed based on various surveys and user testing and tested iteratively. The app is currently being tested on testflight.",
+          },
+          
+        ],
         [
           {
             title: "SquashScore",
@@ -29,30 +40,23 @@ export default {
             description:
               "A machine learning project for classifying the molecular subtype of breast cancer in cases of brain metastasis. I trained a custom ensemble classifier using radiomics data and 3D MRI scans, handling data processing and model development in Python.",
           },
+          
         ],
         [
-          {
-            title: "Music on Sleep: N-of-1 Trial",
-            image: nof1Image,
-            route: "nof1",
-            description:
-              "A study exploring the effect of classical music on sleep quality through a four-week ABAB trial. Fitbit data, surveys, statistical analysis, and sentiment analysis were used to understand whether music influenced sleep and morning mood.",
-          },
-        ],
-        [
-          {
-            title: "FreshCheck",
-            image: freshcheckImage,
-            route: "freshcheck",
-            description:
-              "An Android app concept designed to track the time a user spends outdoors. The project focused on user research, interface design, and prototyping in Android Studio.",
-          },
+          
           {
             title: "BlueTape",
             image: blueTapeImage,
             route: "bluetape",
             description:
               "The winning idea at the MindState Ideation Hackathon. Through user interviews and research, our team designed an AgTech concept to help farmers monitor and respond to pesticide drift. The project was developed in collaboration with designers from Mexico and Israel and supported by a BlueWhite mentor.",
+          },
+          {
+            title: "Music on Sleep: N-of-1 Trial",
+            image: nof1Image,
+            route: "nof1",
+            description:
+              "A study exploring the effect of classical music on sleep quality through a four-week ABAB trial. Fitbit data, surveys, statistical analysis, and sentiment analysis were used to understand whether music influenced sleep and morning mood.",
           },
         ],
         [
@@ -193,6 +197,8 @@ export default {
   display: block;
   width: 100%;
   height: 100%;
+  max-height: 360px;
+  min-height: 290px;
   object-fit: cover;
   filter: saturate(0.95) contrast(0.96);
 }

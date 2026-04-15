@@ -38,9 +38,9 @@ const router = createRouter({
       component: () => import('../views/ExperienceView.vue'),
     },
     {
-      path: '/freshcheck',
-      name: 'freshcheck',
-      component: () => import('../assets/report.pdf'),
+      path: '/echofeed',
+      name: 'echofeed',
+      component: () => import('../views/EchoFeedView.vue'),
     },
     {
       path: '/squashscore',
