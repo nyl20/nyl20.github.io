@@ -282,7 +282,7 @@ export default {
 }
 
 .section-band {
-  width: 72%;
+  width: 75%;
   align-self: center;
 }
 
