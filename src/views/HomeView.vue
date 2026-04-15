@@ -97,7 +97,7 @@ export default {
     <section class="hero-section">
       <div class="section-inner hero-layout">
         <div class="hero-copy">
-          <p class="hero-kicker">Nicole Liao</p>
+          <!-- <p class="hero-kicker">Nicole Liao</p> -->
           <h1>Hello, I'm Nicole</h1>
           <p class="hero-summary">
             I build thoughtful technology across health, research, and creative projects.
@@ -111,7 +111,7 @@ export default {
 
         <div class="hero-doodle-wrap" aria-hidden="true">
           <div class="hero-doodle-shadow"></div>
-          <p class="hero-doodle-note">hello</p>
+          <!-- <p class="hero-doodle-note">hello</p> -->
           <svg class="hero-doodle" viewBox="0 0 320 420" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g class="doodle-ink">
               <path d="M125 44L96 16L66 45L77 102" />
@@ -432,10 +432,10 @@ export default {
   margin: 0 3% 2rem 0;
   padding: 1rem 1.1rem;
   border-radius: 20px;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  /* background: var(--color-surface); */
+  /* border: 1px solid var(--color-border); */
   backdrop-filter: blur(12px);
-  box-shadow: 0 16px 34px var(--color-shadow);
+  /* box-shadow: 0 16px 34px var(--color-shadow); */
 }
 
 .hero-contact a {

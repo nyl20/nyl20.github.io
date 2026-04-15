@@ -32,7 +32,7 @@ onBeforeUnmount(() => {
             <RouterLink to="/">Home</RouterLink>
             <RouterLink to="/projects">Projects</RouterLink>
             <!-- <RouterLink to="/research">Research</RouterLink> -->
-            <RouterLink to="/experience">Experience</RouterLink>
+            <!-- <RouterLink to="/experience">Experience</RouterLink> -->
             <RouterLink to="/about-me">About Me</RouterLink>
           </nav>
         </div>
