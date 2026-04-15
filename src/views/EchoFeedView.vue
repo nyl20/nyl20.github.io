@@ -8,6 +8,8 @@
     import search from "../assets/squash/search.jpg"
     import logo from "../assets/SS_login.png"
     import scores from "../assets/sleep_scores.png"
+    import podcast from "../assets/ef-podcast.jpeg"
+    import saved from "../assets/ef-saved.jpeg"
 import report from "../assets/sleep_report.png"
     import Carousel from 'primevue/carousel';
     
@@ -15,8 +17,9 @@ import report from "../assets/sleep_report.png"
         data: function () {
             return {
                 images: [
-                  {title: '', image: report, alt: 'Report pdf'},
-                  {title: '', image: scores, alt: 'Result charts'},
+                  
+                  {title: '', image: podcast, alt: 'Podcast screen'},
+                  {title: '', image: saved, alt: 'Saved screen'},
                   // {title: 'Record Decisive Points', image: play, alt: 'Record Decisive Points'},
                   // {title: 'Player Skills Screen', image: player1, alt: 'Player Skills Screen 1'},
                   // {title: 'Player Skills Screen', image: player2, alt: 'Player Skills Screen 2'},
@@ -43,7 +46,13 @@ import report from "../assets/sleep_report.png"
           <p>Email: nyl6@cornell.edu</p>
           <p>Github: https://github.com/nyl20</p>
         </div> -->
-        <router-link to="/projects"><button class="back-button">Back</button></router-link>
+        <div class="project-contact-area">
+          <p class="twenty">Information</p>
+          <p>Since this app is still in testing, it is not available yet on the app store. For questions, reach out to:</p>
+          <p>Email: nyl6@cornell.edu</p>
+          <p>Github: https://github.com/Matt-Shapir0/SaveSpace</p>
+        </div>
+        <router-link to="/projects"><button class="project-back-link">&#8592 All Projects</button></router-link>
         
       </div>
       <div id="carousel-area">
@@ -79,6 +88,7 @@ import report from "../assets/sleep_report.png"
 .project-container{
   margin-left: 9%;
   margin-right: 9%;
+  margin-top: -2%;
 }
 
 .squash-title{
@@ -104,6 +114,7 @@ import report from "../assets/sleep_report.png"
 .carousel-image {
   max-width: 95%;
   height: auto;
+  max-height: 600px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
@@ -122,19 +133,30 @@ import report from "../assets/sleep_report.png"
   }
 
   .back-button:hover{
-    background-color: #F4F4F9;
+    /* background-color: #F4F4F9; */
+    background-color: var(--color-highlight);
   }
 
   .back-button {
-    border-radius: 12px;
-    background-color:#B8DBD9 ;
-    width: 15%;
+    border-radius: 20px;
+    /* background-color:#B8DBD9 ; */
+    background-color: rgba(255, 255, 255, 0.05);
+    width: 25%;
     border-width: 0;
     padding: 2%;
     align-items: center;
     margin-bottom: 15%;
     margin-top: 4%;
     text-align: center;
+    border: 1px solid var(--accent-gold);
+    color: var(--color-text);
+    box-shadow: 0 12px 26px rgba(104, 81, 33, 0.2);
+    cursor: pointer;
+    transition:
+      transform 0.2s ease,
+      background-color 0.2s ease,
+      color 0.2s ease,
+      box-shadow 0.2s ease;
   }
 
   .box {

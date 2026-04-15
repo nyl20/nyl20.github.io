@@ -15,6 +15,10 @@ a,
   padding: 3px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 ::selection {
   background: var(--color-highlight);
   color: var(--color-heading);
@@ -31,9 +35,79 @@ a,
   }
 }
 
+@keyframes pageFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-shell > * {
+  animation: pageFadeUp 0.42s ease both;
+}
+
+.project-container{
+  margin-left: 9%;
+  margin-right: 9%;
+  margin-top: -2%;
+}
+
+.project-back-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 130px;
+  min-height: 40px;
+  margin-top: 1.2rem;
+  margin-bottom: 25%;
+  padding: 0.4rem 0.4rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--accent-gold);
+  color: var(--color-text);
+  box-shadow: 0 12px 26px rgba(104, 81, 33, 0.2);
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.project-back-link:hover {
+  transform: translateY(-2px);
+  background-color: var(--color-highlight);
+}
+
+.project-contact-area {
+    background-color: #586F7C;
+    padding: 5%;
+    margin-top: 7%;
+    color: #F4F4F9;
+    border-radius: 6px;
+  }
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .page-shell > * {
+    animation: none;
+  }
+}
+
 @media (hover: hover) {
   a:hover {
     background-color: var(--color-link-hover-bg);
+  }
+
+  .project-back-link:hover {
+    background-color: var(--color-highlight);
   }
 }
 

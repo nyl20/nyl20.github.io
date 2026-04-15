@@ -7,9 +7,12 @@ import blueTapeImage from "../assets/blueTape.png";
 import nof1Image from "../assets/sleep_report.png";
 import freshcheckImage from "../assets/SS_login.png";
 import weillImage from "../assets/weill.png";
-import tottiImage from "../assets/TottiLabs.png";
-import birdImage from "../assets/OrnithologyLab.png";
+import tottiImage from "../assets/DTU-logo.png";
+import birdImage from "../assets/cornell-lab-logo.svg";
 import efImage from "../assets/ef-cover.png";
+import cornell from "../assets/cu-logo.webp";
+import inspirit from "../assets/inspirit-ai-logo.webp";
+import mystage from "../assets/my-stage.png";
 
 export default {
   components: {
@@ -64,9 +67,11 @@ export default {
         },
       ],
       experienceImages: [
-        { title: "Weill Cornell", image: weillImage },
+        { title: "MyStage", image: mystage },
+        { title: "Cornell", image: cornell },
         { title: "TOTTI Labs", image: tottiImage },
         { title: "BirdCast", image: birdImage },
+        { title: "Inspirit AI", image: inspirit},
       ],
       skillGroups: [
         {
@@ -103,8 +108,7 @@ export default {
           <!-- <p class="hero-kicker">Nicole Liao</p> -->
           <h1>Hello, I'm Nicole</h1>
           <p class="hero-summary">
-            I build thoughtful technology across health, research, and creative projects.
-            I care about work that feels useful, human, and carefully made.
+            Cornell Tech M.S. Information Science student and Full-Stack Engineer. I design and build ML-powered products across health, research, and creative spaces.
           </p>
           <!-- <div class="hero-actions">
             <button class="primary-button" @click="scrollToWork">View work</button>
@@ -256,14 +260,22 @@ export default {
         </div>
 
         <div class="experience-images">
-          <RouterLink
+          <div
+            v-for="item in experienceImages"
+            :key="item.title"
+            class="experience-image-link"
+          >
+            <img :src="item.image" :alt="item.title" class="experience-image" />
+        </div>
+          
+          <!-- <RouterLink
             v-for="item in experienceImages"
             :key="item.title"
             to="/about-me"
             class="experience-image-link"
           >
             <img :src="item.image" :alt="item.title" class="experience-image" />
-          </RouterLink>
+          </RouterLink> -->
         </div>
       </div>
     </section>
@@ -437,7 +449,7 @@ export default {
   border-radius: 20px;
   /* background: var(--color-surface); */
   /* border: 1px solid var(--color-border); */
-  backdrop-filter: blur(12px);
+  /* backdrop-filter: blur(12px); */
   /* box-shadow: 0 16px 34px var(--color-shadow); */
 }
 
@@ -486,8 +498,11 @@ export default {
 }
 
 .primary-button {
-  background: var(--accent-gold);
-  color: #fffaf0;
+  /* background: var(--accent-gold); */
+  /* border-color: var(--accent-gold); */
+  border: 1px solid var(--accent-gold);
+  /* color: #fffaf0; */
+  color: var(--color-text);
   box-shadow: 0 12px 26px rgba(104, 81, 33, 0.2);
 }
 
@@ -818,7 +833,7 @@ export default {
 
 .experience-images {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 180px));
+  grid-template-columns: repeat(5, minmax(0, 180px));
   justify-content: center;
   gap: 1rem;
   align-items: start;

@@ -94,13 +94,30 @@ nav {
 }
 
 nav a {
-  padding: 0.5rem 0.8rem;
-  border-radius: 999px;
+  position: relative;
+  padding: 0.45rem 0.35rem 0.6rem;
+  margin-left: 0.7rem;
   color: var(--color-text);
 }
 
 nav a.router-link-exact-active {
-  background: var(--color-highlight);
+  color: var(--color-heading);
+  font-weight: 600;
+}
+
+nav a.router-link-exact-active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.05rem;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--accent-gold);
+}
+
+nav a:hover {
+  background: transparent;
 }
 
 .navbar {

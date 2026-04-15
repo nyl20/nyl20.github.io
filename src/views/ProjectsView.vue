@@ -119,6 +119,7 @@ export default {
   width: 74%;
   margin-left: 13%;
   margin-right: 13%;
+  margin-top: -2%;
   box-sizing: border-box;
   padding: 3.25rem 0 4.25rem;
   align-items: center;

@@ -37,8 +37,8 @@ export default {
               organization: "Weill Cornell Medicine x Cornell Tech",
               role: "Medical Education Advising Research",
               points: [
-                "Explored directions including LLM finetuning and retrieval-augmented generation.",
-                "Worked on a healthcare-facing problem where trust, specificity, and usability are especially important.",
+                "Explored directions for using LLMs in the medical education advising experience, including LLM finetuning and retrieval-augmented generation.",
+                "Built out a chatbot prototype (Ollama + RAG) to evaluate the use of LLMs in a problem concerning usability and security.",
               ],
             },
             {
@@ -66,8 +66,8 @@ export default {
               organization: "Cornell Tech",
               role: "Applied Machine Learning Course Grader",
               points: [
-                "Assessed technical correctness and communicated feedback clearly to students.",
-                "Supported learning around practical model building and evaluation.",
+                "Assessed model implementations and performance in assignments and communicated feedback clearly to students.",
+                // "Supported learning around practical model building and evaluation.",
               ],
             },
             {
@@ -82,7 +82,7 @@ export default {
               organization: "Cornell University",
               role: "Course Consultant, Object-Oriented Programming and Data Structures",
               points: [
-                "Helped students reason through object-oriented design and data structure tradeoffs.",
+                "Taught undergraduate students OOP in Java and how to implement different data structures.",
                 "Focused on making foundational programming concepts clearer and more approachable.",
               ],
             },
@@ -100,7 +100,7 @@ export default {
         {
           title: "Other",
           points: [
-            "Music - I enjoy playing the piano or flute.",
+            "Music - I enjoy playing the piano and flute.",
             "Hiking and running - I try to hike on every trip I take and have been working towards running a half marathon. ",
           ],
         },
@@ -120,7 +120,7 @@ export default {
            <h2>About Me</h2>
           <p class="about-summary">
             I am a master's student at Cornell Tech interested in health tech, machine learning, and
-            thoughtful product design. I like building work that feels useful and aligns with my values and passions.
+            thoughtful product design. I like building useful products and work that aligns with my values and passions.
           </p>
           <p class="about-summary">
             My background has moved across data science research, teaching, and full stack projects. I hope to gain more experience through more software roles and contribute to purposeful projects.
@@ -243,6 +243,7 @@ export default {
   padding: 3.25rem 0 4rem;
   margin-left: 11%;
   margin-right: 11%;
+  margin-top: -2%;
 }
 
 .about-layout {

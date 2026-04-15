@@ -35,13 +35,13 @@
          <h1>SquashScore</h1>
         <p>SquashScore is an iOS app for squash players and coaches to analyze their skills based on real time input. Once a user signs in, they can add players and start a match. A match is recorded through user input of the last shot of each rally, while the match is being played in real time. The user can input details about each decisive shot like the specific shot taken, the direction, and the location. Multiple games can be played per match, with intermediate skill analysis for coaches to use during the 90 seconds allotted between games to coach during a match. A more in depth analysis is provided at the end of matches, as well as on a player's profile. Users can also search up previous matches they recorded and look at head-to-head analysis, which combines data across different matches. </p>
         <p>The app was designed using wireframes, user interviews, and Figma for higher fidelity prototypes. React Native was used for development and data was stored using Supabase. The app is currently in beta testing using Apple's Test Flight.</p>
-        <div class="contact-area">
+        <div class="project-contact-area">
           <p class="twenty">Information</p>
           <p>Since this app is still in testing, it is not available yet on the app store. For questions, reach out to:</p>
           <p>Email: nyl6@cornell.edu</p>
           <p>Github: https://github.com/nyl20</p>
         </div>
-        <router-link to="/projects"><button class="back-button">Back</button></router-link>
+        <router-link to="/projects" class="project-back-link">&#8592; All Projects</router-link>
         
       </div>
       <div id="carousel-squash">
@@ -118,22 +118,6 @@
     width: 100%;
   }
 
-  .back-button:hover{
-    background-color: #F4F4F9;
-  }
-
-  .back-button {
-    border-radius: 12px;
-    background-color:#B8DBD9 ;
-    width: 15%;
-    border-width: 0;
-    padding: 2%;
-    align-items: center;
-    margin-bottom: 15%;
-    margin-top: 4%;
-    text-align: center;
-  }
-
   .box {
     display: flex;
     flex-direction: column;
@@ -141,10 +125,6 @@
     margin-left: 7%;
     margin-right: 7%;
     margin-top: 5%;
-    animation: 1s fadeIn;
-    animation-fill-mode: forwards;
-  
-    visibility: hidden;
   }
 
   .description {
@@ -178,6 +158,7 @@
     padding: 5%;
     margin-top: 7%;
     color: #F4F4F9;
+    border-radius: 6px;
   }
 
   @media (max-width: 1000px) {

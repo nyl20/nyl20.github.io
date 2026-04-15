@@ -53,7 +53,7 @@ cancer, the treatment response, and the overall patient outcome. Since knowing t
           <p>Email: nyl6@cornell.edu</p>
           <p>Github: https://github.com/nyl20</p>
         </div> -->
-        <router-link to="/projects"><button class="back-button">Back</button></router-link>
+        <router-link to="/projects" class="project-back-link">&#8592; All Projects</router-link>
         
       </div>
       <div id="carousel-bcbm">
@@ -131,22 +131,6 @@ cancer, the treatment response, and the overall patient outcome. Since knowing t
     width: 100%;
   }
 
-  .back-button:hover{
-    background-color: #F4F4F9;
-  }
-
-  .back-button {
-    border-radius: 12px;
-    background-color:#B8DBD9 ;
-    width: 15%;
-    border-width: 0;
-    padding: 2%;
-    align-items: center;
-    margin-bottom: 15%;
-    margin-top: 4%;
-    text-align: center;
-  }
-
   .box {
     display: flex;
     flex-direction: column;
@@ -154,10 +138,6 @@ cancer, the treatment response, and the overall patient outcome. Since knowing t
     margin-left: 7%;
     margin-right: 7%;
     margin-top: 5%;
-    animation: 1s fadeIn;
-    animation-fill-mode: forwards;
-  
-    visibility: hidden;
   }
 
   .description {
