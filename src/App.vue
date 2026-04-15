@@ -31,7 +31,7 @@ onBeforeUnmount(() => {
           <nav>
             <RouterLink to="/">Home</RouterLink>
             <RouterLink to="/projects">Projects</RouterLink>
-            <RouterLink to="/research">Research</RouterLink>
+            <!-- <RouterLink to="/research">Research</RouterLink> -->
             <RouterLink to="/experience">Experience</RouterLink>
             <RouterLink to="/about-me">About Me</RouterLink>
           </nav>
@@ -48,18 +48,23 @@ onBeforeUnmount(() => {
 <style scoped>
 .site-header {
   position: fixed;
-  top: 12px;
+  /* top: 12px; */
   left: 50%;
-  width: min(1400px, calc(100% - 24px));
+  /* width: min(1400px, calc(100% - 24px)); */
+  width: 100%;
   z-index: 20;
   display: flex;
   justify-content: space-between;
   align-items: end;
   padding: 1rem 2%;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.76);
+  padding-left: 11%;
+  padding-right: 11%;
+  /* border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px; */
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
   backdrop-filter: blur(16px);
-  box-shadow: 0 10px 30px rgba(47, 69, 80, 0.08);
+  box-shadow: 0 10px 30px var(--color-shadow);
   opacity: 0;
   transform: translateX(-50%) translateY(-10px);
   pointer-events: none;
@@ -75,10 +80,10 @@ onBeforeUnmount(() => {
 }
 
 h1 {
-  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-size: clamp(1.8rem, 4vw, 2rem);
   line-height: 1;
   font-weight: 700;
-  color: #2f4550;
+  color: var(--color-heading);
 }
 
 nav {
@@ -91,11 +96,11 @@ nav {
 nav a {
   padding: 0.5rem 0.8rem;
   border-radius: 999px;
-  color: #2f4550;
+  color: var(--color-text);
 }
 
 nav a.router-link-exact-active {
-  background: #e8f2f1;
+  background: var(--color-highlight);
 }
 
 .navbar {

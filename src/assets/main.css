@@ -10,9 +10,14 @@
 a,
 .green {
   text-decoration: none;
-  color: #586F7C;
+  color: var(--color-link);
   transition: 0.4s;
   padding: 3px;
+}
+
+::selection {
+  background: var(--color-highlight);
+  color: var(--color-heading);
 }
 
 @keyframes fadeIn {
@@ -28,7 +33,7 @@ a,
 
 @media (hover: hover) {
   a:hover {
-    background-color: #F4F4F9;
+    background-color: var(--color-link-hover-bg);
   }
 }
 
