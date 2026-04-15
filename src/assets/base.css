@@ -1,53 +1,32 @@
-/* color palette from <https://github.com/vuejs/theme> */
 :root {
-  --vt-c-white: #ffffff;
-  --vt-c-white-soft: #f8f8f8;
-  --vt-c-white-mute: #f2f2f2;
-
-  --vt-c-black: #181818;
-  --vt-c-black-soft: #222222;
-  --vt-c-black-mute: #282828;
-
-  --vt-c-indigo: #2c3e50;
-
-  --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
-  --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
-  --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
-  --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
-
-  --vt-c-text-light-1: var(--vt-c-indigo);
-  --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
-  --vt-c-text-dark-1: var(--vt-c-white);
-  --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
-}
-
-/* semantic color variables for this project */
-:root {
-  --color-background: var(--vt-c-white);
-  --color-background-soft: var(--vt-c-white-soft);
-  --color-background-mute: var(--vt-c-white-mute);
-
-  --color-border: var(--vt-c-divider-light-2);
-  --color-border-hover: var(--vt-c-divider-light-1);
-
-  --color-heading: var(--vt-c-text-light-1);
-  --color-text: var(--vt-c-text-light-1);
-
+  --paper-base: #fbf8ee;
+  --paper-soft: #fefcf6;
+  --paper-strong: #f6ebbe;
+  --paper-panel: rgba(255, 252, 244, 0.88);
+  --paper-panel-strong: rgba(255, 249, 233, 0.94);
+  --paper-shadow: rgba(43, 34, 19, 0.07);
+  --dot-grid: rgba(77, 61, 33, 0.12);
+  --ink-strong: #17130d;
+  --ink: #2a2218;
+  --ink-soft: #564836;
+  --accent-yellow: #efd985;
+  --accent-gold: #c59b2b;
+  --accent-sage: #8f9d6d;
+  --color-background: var(--paper-base);
+  --color-background-soft: var(--paper-soft);
+  --color-background-mute: var(--paper-panel);
+  --color-border: rgba(77, 61, 33, 0.14);
+  --color-border-hover: rgba(77, 61, 33, 0.24);
+  --color-heading: var(--ink-strong);
+  --color-text: var(--ink);
+  --color-text-soft: var(--ink-soft);
+  --color-link: #4f3c16;
+  --color-link-hover-bg: rgba(239, 217, 133, 0.18);
+  --color-surface: var(--paper-panel);
+  --color-surface-strong: var(--paper-panel-strong);
+  --color-highlight: rgba(239, 217, 133, 0.24);
+  --color-shadow: var(--paper-shadow);
   --section-gap: 160px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: var(--vt-c-black);
-    --color-background-soft: var(--vt-c-black-soft);
-    --color-background-mute: var(--vt-c-black-mute);
-
-    --color-border: var(--vt-c-divider-dark-2);
-    --color-border-hover: var(--vt-c-divider-dark-1);
-
-    --color-heading: var(--vt-c-text-dark-1);
-    --color-text: var(--vt-c-text-dark-2);
-  }
 }
 
 *,
@@ -61,7 +40,12 @@
 body {
   min-height: 100vh;
   color: var(--color-text);
-  background: var(--color-background);
+  background-color: var(--color-background);
+  background-image:
+    radial-gradient(circle at 1px 1px, var(--dot-grid) 1.15px, transparent 0),
+    linear-gradient(180deg, rgba(255, 254, 249, 0.96) 0%, rgba(251, 248, 238, 0.98) 100%);
+  background-size: 22px 22px, 100% 100%;
+  background-attachment: fixed;
   transition:
     color 0.5s,
     background-color 0.5s;

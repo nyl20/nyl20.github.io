@@ -1,282 +1,277 @@
 <script>
-    import image from "../assets/SS_login.png";
-    
-    export default {
-       methods: {
-    routerpush(resource_name) {
-      let name = "/" + resource_name;
-      this.$router.push(name);
-    }},
-        data: function () {
-            return {
-                image: image
-            }
-        }
-    }
+import { RouterLink } from "vue-router";
+import squashImage from "../assets/squash/play.jpg";
+import bcbmImage from "../assets/brains.png";
+import nof1Image from "../assets/sleep_report.png";
+import freshcheckImage from "../assets/SS_login.png";
+import blueTapeImage from "../assets/blueTape.png";
+import yarnImage from "../assets/ys-banner.png";
+import efImage from "../assets/ef-cover.png";
+
+export default {
+  components: {
+    RouterLink,
+  },
+  data() {
+    return {
+      projectRows: [
+        [
+          {
+            title: "EchoFeed",
+            image: efImage,
+            route: "echofeed",
+            description:
+              "An iOS app that generates short form audio based on saved social media content. EchoFeed was developed based on various surveys and user testing and tested iteratively. The app is currently being tested on testflight.",
+          },
+          
+        ],
+        [
+          {
+            title: "SquashScore",
+            image: squashImage,
+            route: "squashscore",
+            description:
+              "An app for squash players and coaches to analyze matches and improve performance based on real-time input. Coaches can document how points are won and use the app to visualize patterns of strength and weakness. The project was designed in Figma and developed in React Native for iOS deployment.",
+          },
+          {
+            title: "BCBM Subtype Prediction",
+            image: bcbmImage,
+            route: "bcbm-prediction",
+            description:
+              "A machine learning project for classifying the molecular subtype of breast cancer in cases of brain metastasis. I trained a custom ensemble classifier using radiomics data and 3D MRI scans, handling data processing and model development in Python.",
+          },
+          
+        ],
+        [
+          
+          {
+            title: "BlueTape",
+            image: blueTapeImage,
+            route: "bluetape",
+            description:
+              "The winning idea at the MindState Ideation Hackathon. Through user interviews and research, our team designed an AgTech concept to help farmers monitor and respond to pesticide drift. The project was developed in collaboration with designers from Mexico and Israel and supported by a BlueWhite mentor.",
+          },
+          {
+            title: "Music on Sleep: N-of-1 Trial",
+            image: nof1Image,
+            route: "nof1",
+            description:
+              "A study exploring the effect of classical music on sleep quality through a four-week ABAB trial. Fitbit data, surveys, statistical analysis, and sentiment analysis were used to understand whether music influenced sleep and morning mood.",
+          },
+        ],
+        [
+          {
+            title: "Yarn Social",
+            image: yarnImage,
+            route: "yarnsocial",
+            description:
+              "A website for yarn lovers and fiber artists to share patterns and yarn shops. Users can post patterns, while shops can share store updates or featured products. The site was built with Next.js, React, Drizzle, and Postgres.",
+          },
+        ],
+      ],
+    };
+  },
+};
 </script>
 
 <template>
-  <div class="projects-container">
-    <!-- <div> -->
-    <!-- <h1>This is an projects page: db, aml, ai hc, pp</h1>
-    <p>Vegetable Varieties</p>
-    <p>Search Media</p>
-    <p>Graphics final</p> -->
-    <div >
-            <h2>Projects</h2>
-         </div>
+  <div class="projects-page">
+    <section class="projects-hero">
+      <!-- <p class="projects-kicker">Projects</p> -->
+      <!-- <h1>Selected work across product, research, and creative technology.</h1> -->
+       <h2>Projects</h2>
+      <!-- <p class="projects-summary">
+        These projects range from health tech and machine learning to community platforms and app design.
+        I’m usually most interested in work that combines useful functionality with a clear, thoughtful user experience.
+      </p> -->
+    </section>
 
+    <section class="projects-list" aria-label="Projects">
+      <div
+        v-for="(row, rowIndex) in projectRows"
+        :key="rowIndex"
+        :class="['projects-row', row.length === 1 ? 'projects-row-single' : 'projects-row-double']"
+      >
+        <article
+          v-for="project in row"
+          :key="project.title"
+          class="project-entry"
+        >
+          <div class="project-image-wrap">
+            <img :src="project.image" :alt="project.title" class="project-image" />
+          </div>
 
-
-         <div   class="pair">    
-    <Card v-animateonscroll="{ enterClass: 'fadeinRight' }" class="project">
-        <template class="title" #title>SquashScore</template>
-        <template #content>
-            <p class="m-0">
-              An app for squash players and coaches to analyze their matches and improve their skills based 
-              on real time input. Squash coaches can use this app to document how points are
-               won and visualize areas of strength and weakness. Designed in Figma 
-               and developed in React Native with deployment using Apple Developer.
-            </p>
-            <button class="more-button"  @click="routerpush('squashscore')">Read more</button>
-        </template>
-    </Card>
-    <Card  v-animateonscroll="{ enterClass: 'fadeinLeft' }" class="project">
-        <template #title>
-          BCBM Suptype Prediction
-          
-        </template>
-        <template #content>
-            <p class="m-0">
-              Machine learning model for classifying the molecular subtype of breast cancer, specifically in cases of brain metastasis. A custom ensemble classifier was trained using radiomics data and 3D scans of the brain (MRIs). All data processing and model development was done in python.
-
-            </p>
-            <button class="more-button" @click="routerpush('bcbm-prediction')">Read more</button>
-        </template>
-    </Card>
-  </div>
-
-   <div   class="pair">    
-    <Card  v-animateonscroll="{ enterClass: 'fadeinRight' }" class="project">
-        <template class="title" #title>Music on Sleep: a N-of-1 Trial</template>
-        <template #content>
-            <p class="m-0">
-              A study to determine the impact of classical music on sleep quality by listening to a relaxing playlist before sleeping and after waking. The trial was conducted over four weeks in an ABAB format. Fitbit was used to track sleep data and surveys were used for percieved sleep and morning mood data collection. Sentiment analysis and statistical analysis were performed on the data to determine if there was a significant effect of music on sleep and morning mood.
-            </p>
-            <button class="more-button" @click="routerpush('nof1')">Read more</button>
-        </template>
-    </Card>
-    <Card v-animateonscroll="{ enterClass: 'fadeinLeft' }"  class="project">
-        <template #title>
-         BlueTape
-          
-        </template>
-        <template #content>
-            <p class="m-0">
-              The winning idea at the MindState Ideation Hackathon. User interviews and research were performed to ideate a product in the AgTech field which would help farmers combat or monitor the problem of pesticide drift. BlueTape was created in collaboration with designers from Mexico and Israel and a mentor from BlueWhite.
-
-            </p>
-            <button class="more-button" @click="routerpush('bluetape')">Read more</button>
-        </template>
-    </Card>
-  </div>
-
-
-    <div class="pair">    
-      <Card v-animateonscroll="{ enterClass: 'fadeinRight' }" class="project">
-        <template #title>
-          Yarn Social
-          
-        </template>
-        <template #content>
-            <p class="m-0">
-              A website for yarn lovers and fiber artists to share patterns and yarn shops. Users can post patterns and shops can post about their store or items they are selling. The website was created with Next.js, React, drizzle, and a postgres database.
-
-            </p>
-            <button class="more-button"  @click="routerpush('yarnsocial')">Read more</button>
-            
-        </template>
-    </Card>
-    <Card v-animateonscroll="{ enterClass: 'fadeinLeft' }"  class="project">
-        <template class="title" #title>Relational Database Management System</template>
-        <template #content>
-            <p class="m-0">
-              An original relational database management system developed as the final deliverable for Databases Practicum (CS).
-              The database takes in binary datatables, SQL queires, and efficiently returns the 
-              output to the queries. The system supports scanning, projections, aliases, filtering, sorting, and joining.
-              Multiple joins were also implemented, including block nested loop join and sort merge join. Retrieval of results was
-              optimized using indexing and a join dynamic programming algorithm. All components were coded in Java.
-            </p>
-        </template>
-    </Card>
-  </div>
-
-
-  <div  class="pair">
-    <Card  v-animateonscroll="{ enterClass: 'fadeinRight' }" class="project">
-        <template #title>Cornell Biomedical Device (CUBMD)</template>
-        <template #content>
-            <p class="m-0">
-                CUBMD is a project team in the College of Engineering at Cornell. During my 
-                three years on the team, I worked with fellow engineering students on the 
-                product development subteam and also worked as the Webmaster. We worked on 
-                ideating novel devices and developing devices we believed feasible. As a team, 
-                we started multiple projects and submitted to competitions.
-            </p>
-        </template>
-        <template #footer>
-        <div class="flex gap-4 mt-1">
-          <Fieldset legend="Specific Projects" :toggleable="true">
-            <p>Website design: <a href="https://www.cubmd.org/">CUBMD website</a></p>
-           <p class="m-0">
-            MelanOxi: Pulse oximeter that calibrates to skin tone
-           </p>
-           <p class="m-0">
-            MyeMonitor: Wearable muscle sensor to track MS symptoms
-           </p>
-           <p class="m-0">
-            InFlux: Infusion pump to make drug addiction recovery accessible
-           </p>
-          </Fieldset>
-        </div>
-    </template>
-    </Card>
-    <Card  v-animateonscroll="{ enterClass: 'fadeinLeft' }" class="project">
-        <template #title>FreshCheck</template>
-        <template #content>
-            <p class="m-0">
-                An Android app to track the time a user spends outdoors. This project focused
-                on user research and design, as well as creating a prototype in Android Studio.
-                We researched existing apps and the importance of spending time outdoors in order to
-                create an effective design and wrote a comprehensive report of our findings.
-            </p>
-            <!-- <p><a href="assets/report.pdf">CUBMD website</a></p> -->
-        </template>
-    </Card>
-  </div>
+          <div class="project-copy">
+            <h2>{{ project.title }}</h2>
+            <p>{{ project.description }}</p>
+            <RouterLink :to="{ name: project.route }" class="project-link">Read more</RouterLink>
+          </div>
+        </article>
+      </div>
+    </section>
   </div>
 </template>
 
-<style>
-  .projects-container {
-    min-height: 100vh;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    width: 100%;
-    flex-direction: column;
-    padding-right: 7%;
-    padding-left: 7%;
-    margin-top: 3%;
-    margin-bottom: 5%;
-    /* background-color: aquamarine; */
+<style scoped>
+.projects-page {
+  /* width: min(980px, calc(100% - 10%)); */
+  /* max-width: 980px; */
+  width: 74%;
+  margin-left: 13%;
+  margin-right: 13%;
+  margin-top: -2%;
+  box-sizing: border-box;
+  padding: 3.25rem 0 4.25rem;
+  align-items: center;
+}
+
+.projects-hero {
+  max-width: 58rem;
+}
+
+.projects-kicker {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.projects-hero h1 {
+  margin-top: 0.7rem;
+  font-size: clamp(2.2rem, 4.4vw, 4rem);
+  line-height: 1.02;
+  color: var(--color-heading);
+}
+
+.projects-hero h2 {
+  font-size: clamp(1.5rem, 2.8vw, 1.8rem);
+  color: var(--color-heading);
+  font-weight: 500;
+}
+
+.projects-summary {
+  max-width: 42rem;
+  margin-top: 1rem;
+  color: var(--color-text-soft);
+  line-height: 1.75;
+}
+
+.projects-list {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1.7rem;
+}
+
+.projects-row {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.projects-row-double {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.projects-row-single {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.project-entry {
+  display: grid;
+  gap: 0.7rem;
+  padding: 0.7rem;
+  border-radius: 8px;
+  background: rgba(255, 251, 243, 0.52);
+  border: 1px solid rgba(78, 66, 42, 0.08);
+  grid-template-columns: minmax(124px, 0.66fr) minmax(0, 1.34fr);
+  align-items: start;
+}
+
+.project-image-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  min-height: 145px;
+}
+
+.project-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 360px;
+  min-height: 290px;
+  object-fit: cover;
+  filter: saturate(0.95) contrast(0.96);
+}
+
+.project-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0.05rem 0.1rem 0.05rem;
+}
+
+.project-copy h2 {
+  color: var(--color-heading);
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+}
+
+.project-copy p {
+  margin-top: 0.55rem;
+  color: var(--color-text-soft);
+  line-height: 1.58;
+  font-size: 0.96rem;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin-top: 0.8rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-heading);
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.project-link:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1180px) {
+  .projects-row-double,
+  .projects-row-single {
+    grid-template-columns: 1fr;
   }
 
-  .title {
-    background-color: #B8DBD9;
+  .projects-page {
+    width: min(100%, calc(100% - 22%));
   }
 
-  .pair {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 4%;
-  }
-
-  .project {
-    width: 48%;
-    /* -webkit-box-shadow: 0 4px 6px -6px #B8DBD9; */
-    /* -moz-box-shadow: 0 4px 6px -6px #B8DBD9; */
-    /* box-shadow: 0 4px 6px -6px #B8DBD9' */
-    /* box-shadow: 10px 5px 5px red; */
-  }
-
-  .card-top {
-    height: 50px;
-  }
-
-  .p-card-title {
-    /* -webkit-box-shadow: 0 4px 6px -6px #222;
-    -moz-box-shadow: 0 4px 6px -6px #222;
-    box-shadow: 0 4px 6px -6px #222; */
-    color: #586F7C;
-  }
-
-  .p-card-body {
-    /* background-color: aquamarine; */
-    /* box-shadow: 10px 5px 5px red; */
-    box-shadow: 0 -0.6em 1em 0.1em #F4F4F9;
-  }
-
-  .more-button:hover{
-    background-color: #586F7C;
-    color: #FFFFFF;
-  }
-
-  .more-button {
-    border-width: 0;
-    border-radius: 10px;
-    background-color: #f4f4f9;
-    margin: 2% auto;
-    padding: 2%;
-  }
-
-  @keyframes fadeInSlideLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-10%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0); /* End at original position */
+  .project-image-wrap {
+    min-height: 180px;
   }
 }
 
-@keyframes fadeInSlideRight {
-  0% {
-    opacity: 0;
-    transform: translateX(10%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0); /* End at original position */
-  }
-}
-
-  @keyframes fadeInSlideUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px); /* Start 20px below its final position */
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0); /* End at its natural position */
-  }
-}
-
-  @keyframes fadein {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-.fadeinRight {
-  animation: fadeInSlideRight 1s ease-out forwards;
-}
-
-.fadeinLeft {
-  animation: fadeInSlideLeft 1s ease-out forwards;
-}
-
-  @media (max-width: 1000px) {
-  .pair {
-    display: flex;
-    flex-direction: column;
-    /* background-color: #586F7C; */
+@media (max-width: 720px) {
+  .projects-page {
+    width: min(100% - 32px, 980px);
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .project {
-    width: 100%;
-    margin-bottom: 5%;
+  .project-entry {
+    padding: 0.65rem;
+    grid-template-columns: 1fr;
+  }
+
+  .project-image-wrap {
+    min-height: 165px;
   }
 }
-
 </style>

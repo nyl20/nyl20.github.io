@@ -1,154 +1,160 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-// import HelloWorld from './components/HelloWorld.vue'
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+import { RouterLink, RouterView, useRoute } from 'vue-router'
+
+const route = useRoute()
+const showHeader = ref(false)
+
+const isHome = computed(() => route.path === '/')
+const shouldShowHeader = computed(() => !isHome.value || showHeader.value)
+
+function handleScroll() {
+  showHeader.value = window.scrollY > window.innerHeight * 0.55
+}
+
+onMounted(() => {
+  handleScroll()
+  window.addEventListener('scroll', handleScroll, { passive: true })
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
 </script>
 
 <template>
-  <!-- <header> -->
-    <!-- <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" /> -->
-
-    <!-- <div class="wrapper"> -->
-      <!-- <div>
-      <HelloWorld msg="Nicole Liao" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div> -->
-    
-  <!-- </header> -->
   <div class="center">
-   <div class="whole">
-    <header>
-      <h1>Nicole Liao</h1>
-      <div class="navbar">
-        <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/projects">Projects</RouterLink>
-        <RouterLink to="/research">Research</RouterLink>
-        <!-- <RouterLink to="/experience">Experience</RouterLink> -->
-        <RouterLink to="/about-me">About Me</RouterLink>
-      </nav>
-      </div>
-      
+    <div class="whole">
+      <header :class="['site-header', { visible: shouldShowHeader }]">
+        <h1>Nicole Liao</h1>
+        <div class="navbar">
+          <nav>
+            <RouterLink to="/">Home</RouterLink>
+            <RouterLink to="/projects">Projects</RouterLink>
+            <!-- <RouterLink to="/research">Research</RouterLink> -->
+            <!-- <RouterLink to="/experience">Experience</RouterLink> -->
+            <RouterLink to="/about-me">About Me</RouterLink>
+          </nav>
+        </div>
       </header>
-      
-  <RouterView />
+
+      <main :class="['page-shell', { 'with-header-offset': !isHome }]">
+        <RouterView />
+      </main>
     </div>
-    
-   </div>
-  
-  
+  </div>
 </template>
 
 <style scoped>
-header {
+.site-header {
+  position: fixed;
+  /* top: 12px; */
+  left: 50%;
+  /* width: min(1400px, calc(100% - 24px)); */
+  width: 100%;
+  z-index: 20;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  padding-left: 2%;
-  padding-right: 2%;
-  -webkit-box-shadow: 0 4px 6px -6px #222;
-  -moz-box-shadow: 0 4px 6px -6px #222;
-  box-shadow: 0 4px 6px -6px #222;
+  align-items: end;
+  padding: 1rem 2%;
+  padding-left: 11%;
+  padding-right: 11%;
+  /* border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px; */
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 10px 30px var(--color-shadow);
+  opacity: 0;
+  transform: translateX(-50%) translateY(-10px);
+  pointer-events: none;
+  transition:
+    opacity 0.28s ease,
+    transform 0.28s ease;
 }
-h1{
-  font-size: 60px;
-  color: #2F4550;
+
+.site-header.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
 }
-nav{
+
+h1 {
+  font-size: clamp(1.8rem, 4vw, 2rem);
+  line-height: 1;
+  font-weight: 700;
+  color: var(--color-heading);
+}
+
+nav {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-bottom: 4%;
-}
-.navbar{
-  /* background-color: #B8DBD9; */
-  display: flex;
-  flex-direction: column;
-  /* justify-content: center; */
+  flex-wrap: wrap;
+  gap: 0.4rem;
   justify-content: flex-end;
-}
-.center{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  max-width: 1200px;
-}
-.whole{
-  /* margin: 3%; */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  /* background-color: #F4F4F9; */
-  margin-left: 0;
-  padding-top: 1%;
-  width: 100%;
-  /* align-content: center; */
-}
-.full-screen-container {
-  height: 100%; 
-  width: 100%;
-  background-color: saddlebrown;
-  margin: 0;
-}
-
-/* nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
 }
 
 nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-} */
-
-/* nav a:first-of-type {
-  border: 0;
-} */
-
-@media (max-width: 900px) {
-  h1 {
-    font-size: 30px;
-  }
-  .navbar {
-    margin-top: 1%;
-  }
-
-  header {
-    flex-direction: column;
-  }
-  .nav {
-    padding-bottom: 0;
-    margin-bottom: 0;
-    background-color: #222;
-  }
-
-  #headshot-area {
-  padding-top: 5%;
-  padding-left: 0;
-  }
-
-  #portrait {
-    width: 100%;
-    height: auto;
-  }
+  position: relative;
+  padding: 0.45rem 0.35rem 0.6rem;
+  margin-left: 0.7rem;
+  color: var(--color-text);
 }
 
-/* 2F4550 */
-/* 586F7C */
-/* B8DBD9 */
-/* F4F4F9 */
+nav a.router-link-exact-active {
+  color: var(--color-heading);
+  font-weight: 600;
+}
+
+nav a.router-link-exact-active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.05rem;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--accent-gold);
+}
+
+nav a:hover {
+  background: transparent;
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.whole {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 1440px;
+}
+
+.page-shell {
+  width: 100%;
+}
+
+.page-shell.with-header-offset {
+  padding-top: 5.75rem;
+}
+
+@media (max-width: 900px) {
+  .site-header {
+    align-items: flex-start;
+  }
+
+  nav {
+    justify-content: flex-start;
+  }
+}
 </style>

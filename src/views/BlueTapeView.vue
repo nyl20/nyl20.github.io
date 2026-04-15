@@ -26,7 +26,7 @@
 </script>
 
 <template>
-  <div class="container">
+  <div class="project-container">
     <!-- <div> -->
       <div class="box">
     
@@ -48,7 +48,7 @@
 <img :src="value"  id="value-img"/>
         <img :src="sensor"  id="sensor-img"/>
         </div>
-        <router-link to="/projects"><button class="back-button">Back</button></router-link>
+        <router-link to="/projects" class="project-back-link">&#8592; All Projects</router-link>
         
         
         
@@ -82,6 +82,11 @@
     align-items: center;
   }
 } */
+
+.project-container{
+  margin-left: 9%;
+  margin-right: 9%;
+}
 
 .squash-title{
   display: flex;
@@ -133,22 +138,6 @@
     width: 100%;
   }
 
-  .back-button:hover{
-    background-color: #F4F4F9;
-  }
-
-  .back-button {
-    border-radius: 12px;
-    background-color:#B8DBD9 ;
-    width: 15%;
-    border-width: 0;
-    padding: 2%;
-    align-items: center;
-    margin-bottom: 15%;
-    margin-top: 4%;
-    text-align: center;
-  }
-
   .box {
     display: flex;
     flex-direction: column;
@@ -156,10 +145,6 @@
     margin-left: 7%;
     margin-right: 7%;
     margin-top: 5%;
-    animation: 1s fadeIn;
-    animation-fill-mode: forwards;
-  
-    visibility: hidden;
   }
 
   .description {

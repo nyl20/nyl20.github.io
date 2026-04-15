@@ -23,7 +23,7 @@ import posts from "../assets/ys-pics.png"
 </script>
 
 <template>
-  <div class="container">
+  <div class="project-container">
     <!-- <div> -->
       <div class="box">
     
@@ -32,12 +32,12 @@ import posts from "../assets/ys-pics.png"
          <h1>Yarn Social</h1>
          <p>Yarn Social is a website for fiber artists to share patterns and find yarn stores. Users can sign up as an individual or as a shop and create posts relating to their business. Shops and individuals can post about items that are for sale or patterns they want to share with the yarn community. Users can also browse on the posts page and sort by popularity (most viewed). Details of posts are not shown to users that are not signed in.</p>
          <p>The website was created using Next.js, React, drizzle and postgres. The design of the interface was styled using Tailwind CSS.</p>     
-        <div class="contact-area">
+        <div class="project-contact-area">
           <p class="twenty">Information</p>
           <p>Website: https://yarn-social.vercel.app/</p>
           <p>Github: https://github.com/nyl20/yarn-social</p>
         </div>
-        <router-link to="/projects"><button class="back-button">Back</button></router-link>
+        <router-link to="/projects" class="project-back-link">&#8592; All Projects</router-link>
         
       </div>
       <div id="carousel-ys">
@@ -69,6 +69,11 @@ import posts from "../assets/ys-pics.png"
     align-items: center;
   }
 } */
+
+.project-container{
+  margin-left: 9%;
+  margin-right: 9%;
+}
 
 .squash-title{
   display: flex;
@@ -110,22 +115,6 @@ import posts from "../assets/ys-pics.png"
     width: 100%;
   }
 
-  .back-button:hover{
-    background-color: #F4F4F9;
-  }
-
-  .back-button {
-    border-radius: 12px;
-    background-color:#B8DBD9 ;
-    width: 15%;
-    border-width: 0;
-    padding: 2%;
-    align-items: center;
-    margin-bottom: 15%;
-    margin-top: 4%;
-    text-align: center;
-  }
-
   .box {
     display: flex;
     flex-direction: column;
@@ -133,10 +122,6 @@ import posts from "../assets/ys-pics.png"
     margin-left: 7%;
     margin-right: 7%;
     margin-top: 5%;
-    animation: 1s fadeIn;
-    animation-fill-mode: forwards;
-  
-    visibility: hidden;
   }
 
   .description {
